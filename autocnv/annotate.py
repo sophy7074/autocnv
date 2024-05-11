@@ -5,7 +5,7 @@ from pysam import VariantFile
 from autocnv import settings
 from autopvs1.cnv import CNVRecord, PVS1CNV
 from autopvs1.utils import get_transcript
-from autopvs1.read_data import transcripts
+# from autopvs1.read_data import transcripts
 from autopvs1.strength import Strength
 from collections import defaultdict
 from itertools import chain
