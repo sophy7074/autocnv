@@ -15,9 +15,12 @@
 
 - install [`autopvs1`](https://github.com/JiguangPeng/autopvs1)
 - install requirments `pip install -r requirements.txt`
+- install autocnv `python setup.py install --prefix $soft`
+- install database `ipython create-datebase.ipynb`
 
 ### Usage
 please refer to the test cases.
+- try test_annotation in `ipython test.ipynb`
 
 ### Citation
 
