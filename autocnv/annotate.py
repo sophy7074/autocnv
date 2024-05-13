@@ -59,8 +59,8 @@ class AnnotateHelper:
         self._dgv_loss_database = DataBase(settings.DGV_LOSS_DATABASE)
         self._gnomad_del_database = DataBase(settings.GNOMAD_DEL_DATABASE)
         self._gnomad_dup_database = DataBase(settings.GNOMAD_DUP_DATABASE)
-        self._cnv_syndrome_del_database = DataBase(settings.CNV_SYNDROME_DEL_DATABASE)
-        self._cnv_syndrome_dup_database = DataBase(settings.CNV_SYNDROME_DUP_DATABASE)
+        # self._cnv_syndrome_del_database = DataBase(settings.CNV_SYNDROME_DEL_DATABASE)
+        # self._cnv_syndrome_dup_database = DataBase(settings.CNV_SYNDROME_DUP_DATABASE)
         self._cytoband_database = DataBase(settings.CYTO_BAND_FILE)
         self._exon_database = DataBase(settings.GENE_EXON_DATABASE)
 
@@ -482,12 +482,12 @@ class AnnotateHelper:
             chromosome, annotation['outer_start'], annotation['outer_end']
         ))
 
-        annotation['cnv_syndrome_loss'] = list(self._cnv_syndrome_del_database.overlap(
-            chromosome, annotation['outer_start'], annotation['outer_end']
-        ))
-        annotation['cnv_syndrome_gain'] = list(self._cnv_syndrome_dup_database.overlap(
-            chromosome, annotation['outer_start'], annotation['outer_end']
-        ))
+        # annotation['cnv_syndrome_loss'] = list(self._cnv_syndrome_del_database.overlap(
+        #     chromosome, annotation['outer_start'], annotation['outer_end']
+        # ))
+        # annotation['cnv_syndrome_gain'] = list(self._cnv_syndrome_dup_database.overlap(
+        #     chromosome, annotation['outer_start'], annotation['outer_end']
+        # ))
 
         annotation['cyto_band'] = list(self._cytoband_database.overlap(
             chromosome, annotation['outer_start'], annotation['outer_end']
@@ -577,12 +577,12 @@ class AnnotateHelper:
             f'{x[0].chrom}:{x[0].start}-{x[0].end}(af: {float(x[0].af):.2e})({x[1]:.2%};{x[2]:.2%})' for x in
             anno_result['gnomad_dup_records']
         )
-        seri['cnv_syndrome_gain'] = ','.join(
-            f'{x[0].disease_name}({x[1]:.2%};{x[2]:.2%})' for x in anno_result['cnv_syndrome_gain']
-        )
-        seri['cnv_syndrome_loss'] = ','.join(
-            f'{x[0].disease_name}({x[1]:.2%};{x[2]:.2%})' for x in anno_result['cnv_syndrome_loss']
-        )
+        # seri['cnv_syndrome_gain'] = ','.join(
+        #     f'{x[0].disease_name}({x[1]:.2%};{x[2]:.2%})' for x in anno_result['cnv_syndrome_gain']
+        # )
+        # seri['cnv_syndrome_loss'] = ','.join(
+        #     f'{x[0].disease_name}({x[1]:.2%};{x[2]:.2%})' for x in anno_result['cnv_syndrome_loss']
+        # )
         seri['auto_score'] = anno_result['score']
         seri['auto_pathogenicity'] = anno_result['pathogenicity']
         seri['pvs1'] = anno_result['pvs1']
