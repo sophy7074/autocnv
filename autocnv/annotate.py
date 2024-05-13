@@ -5,7 +5,7 @@ from pysam import VariantFile
 from autocnv import settings
 from autopvs1.cnv import CNVRecord, PVS1CNV
 from autopvs1.utils import get_transcript
-# from autopvs1.read_data import transcripts
+from autopvs1.read_data import transcripts
 from autopvs1.strength import Strength
 from collections import defaultdict
 from itertools import chain
@@ -148,7 +148,7 @@ class AnnotateHelper:
                     annotation['inner_end'], annotation['func']
                 )
                 tx = get_transcript(gene.transcript, transcripts)
-                pvs1 = PVS1CNV(cnv, None, tx)
+                pvs1 = PVS1CNV(cnv, None, tx,'hg19')
                 loss['2E'] = True
                 # loss[PVS1[pvs1.verify_DEL()[0]]] = True
                 try:  # HOTFIX: pvs1 error
@@ -280,7 +280,7 @@ class AnnotateHelper:
                     annotation['inner_end'], annotation['func']
                 )
                 tx = get_transcript(gene.transcript, transcripts)
-                pvs1 = PVS1CNV(cnv, None, tx)
+                pvs1 = PVS1CNV(cnv, None, tx,'hg19')
                 gain['2I'] = True
                 # gain[PVS1[pvs1.verify_DUP()[0]]] = True
                 gain['pvs1'] = PVS1[pvs1.verify_DUP()[0]]
