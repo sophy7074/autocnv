@@ -12,7 +12,7 @@ from itertools import chain
 import operator
 import pandas as pd
 
-SEP = '\n'
+SEP = '|' #'\n' 2 lines in tsv
 DEFAULT_EMPTY_VALUE = '-'
 NAME_MAP = {'chr': 'chromosome', 'type': 'func'}
 
